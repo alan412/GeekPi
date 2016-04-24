@@ -4,10 +4,7 @@ import tweet
 import RPi.GPIO as GPIO
 import time
 from picamera import PiCamera, Color
-#message ="2016 FLL Razorback"
-#message = "                                                          \
-#We visited 2016 FLL Razorback          \
-#447: It's All Geek to Me's pit"
+
 message = "               2016 FLL Razorback              \
 447: It's All Geek to Me's pit"
 
@@ -41,7 +38,6 @@ try:
         camera.annotate_text_size = 32
         camera.annotate_text = str(message)
         filename = '/home/pi/Projects/capture' + str(numVisitor) + dayStr + '.jpg'
-        time.sleep(0.1)
         camera.capture(filename, use_video_port = True)
         camera.stop_preview()
         camera.start_preview() 
