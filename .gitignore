@@ -1,0 +1,4 @@
+# exclude compiled python
+*.pyc
+# exclude credentials
+credentials.py
