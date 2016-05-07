@@ -9,12 +9,13 @@ class Location(object) :
        self.lon = lon 
        self.name = name
        self.lastDistance = -1
+       self.lastTweetDistance = -1
    def getString(self, lat, lon):
        newDistance = METERS_TO_MILES * EarthDistance((lat, lon), (self.lat, self.lon))
        result = ""
        print "(" + str(newDistance) + ")"
        for distance in distances:
-          if(self.lastDistance > distance) and (newDistance < distance):
+          if(distance != self.lastTweetDistance) and (self.lastDistance > distance) and (newDistance < distance):
              if(distance == 1):
                 result = "under 1 mile away from " + name
              else:
@@ -23,12 +24,10 @@ class Location(object) :
        return result
 
 QualcommRal = Location(35.906033,-78.777359,"Qualcomm Raleigh")
-ArkUnion = Location(36.068880, -95.175907, "Razorback Invitational")
-Home = Location(35.769422333, -78.83893282, "Home")
+ArkUnion = Location(36.068880, -94.175885, "Razorback Invitational")
 
 if __name__ == '__main__':
-#  dest = ArkUnion 
-  dest = Home  
+  dest = ArkUnion 
 # create the controller
   gpsc = GpsController() 
   try:
@@ -57,7 +56,7 @@ if __name__ == '__main__':
   finally:
       print "Stopping gps controller"
       gpsc.stopController()
-      #wait for the tread to finish
+      #wait for the thread to finish
       gpsc.join()
       
   print "Done"
