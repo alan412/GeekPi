@@ -2,3 +2,7 @@
 *.pyc
 # exclude credentials
 credentials.py
+credentials.live
+credentials.test
+# exclude output
+tweets.txt

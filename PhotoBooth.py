@@ -17,7 +17,8 @@ camera = PiCamera()
 camera.resolution = (800, 480)
 camera.start_preview()
 camera.annotate_text = str(message)
-twitter = tweet.Twitter();
+print "Twitter turned off!"
+twitter = tweet.Twitter(True);
 dayStr = calendar.day_name[date.today().weekday()]
 numVisitor = 1
 tweetStr =  dayStr + " Visitor " 
